@@ -1,0 +1,53 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "LeetCode: Setup",
+			"type": "shell",
+			"command": "winpy /home/Itto/.neets/LeetCode-VSCode-Integration/main.py setup",
+			"problemMatcher": [],
+			"presentation": {
+				"echo": false,
+				"reveal": "always",
+				"focus": true,
+				"panel": "dedicated",
+				"showReuseMessage": false,
+				"clear": true,
+				"close": true,
+				"group": "LeetCode Integration"
+			}
+		},
+		{
+			"label": "LeetCode: Test",
+			"type": "shell",
+			"command": "winpy /home/Itto/.neets/LeetCode-VSCode-Integration/main.py test",
+			"problemMatcher": [],
+			"presentation": {
+				"echo": false,
+				"reveal": "silent",
+				"focus": false,
+				"panel": "dedicated",
+				"showReuseMessage": false,
+				"clear": true,
+				"close": true,
+				"group": "LeetCode Integration"
+			}
+		},
+		{
+			"label": "LeetCode: Submit",
+			"type": "shell",
+			"command": "winpy /home/Itto/.neets/LeetCode-VSCode-Integration/main.py submit",
+			"problemMatcher": [],
+			"presentation": {
+				"echo": false,
+				"reveal": "silent",
+				"focus": false,
+				"panel": "dedicated",
+				"showReuseMessage": false,
+				"clear": true,
+				"close": true,
+				"group": "LeetCode Integration"
+			}
+		}
+	]
+}
