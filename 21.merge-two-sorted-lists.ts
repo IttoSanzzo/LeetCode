@@ -20,7 +20,7 @@ interface NodeLists {
 	newNode: ListNode;
 	currentNode1: ListNode | null;
 	currentNode2: ListNode | null;
-	finalListNode: ListNode | null;
+	newNodeHead: ListNode;
 }
 
 function pushNodeAndMoveList(
@@ -36,24 +36,20 @@ function mergeTwoLists(
 	list1: ListNode | null,
 	list2: ListNode | null
 ): ListNode | null {
-	if (!list1 && !list2) return null;
-	else if (!list1) return list2;
-	else if (!list2) return list1;
-
 	const nodeLists: NodeLists = {
 		newNode: new ListNode(),
 		currentNode1: list1,
 		currentNode2: list2,
-		finalListNode: null,
+		newNodeHead: null as unknown as ListNode,
 	};
-	nodeLists.finalListNode = nodeLists.newNode;
+	nodeLists.newNodeHead = nodeLists.newNode;
 	while (nodeLists.currentNode1 != null && nodeLists.currentNode2 != null) {
 		if (nodeLists.currentNode1.val < nodeLists.currentNode2.val)
 			pushNodeAndMoveList(nodeLists, "currentNode1");
 		else pushNodeAndMoveList(nodeLists, "currentNode2");
 	}
 	if (nodeLists.currentNode1) nodeLists.newNode.next = nodeLists.currentNode1;
-	if (nodeLists.currentNode1) nodeLists.newNode.next = nodeLists.currentNode2;
-	return nodeLists.finalListNode!.next;
+	else nodeLists.newNode.next = nodeLists.currentNode2;
+	return nodeLists.newNodeHead.next;
 }
 // @lc code=end
