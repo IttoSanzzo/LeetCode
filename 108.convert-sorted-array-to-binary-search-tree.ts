@@ -22,19 +22,22 @@ function appendNode(
 	leftLimit: number,
 	rightLimit: number
 ): TreeNode | null {
-	if (leftLimit > nums.length || rightLimit < 0) return null;
-	const middle = Math.ceil((rightLimit - leftLimit) / 2);
-	console.log(leftLimit, middle, rightLimit);
-	const node = new TreeNode(nums[middle]);
-	if (middle == leftLimit || middle == rightLimit) return node;
-	node.left = appendNode(nums, leftLimit, middle - 1);
-	node.right = appendNode(nums, middle + 1, rightLimit);
-	return node;
+	if (leftLimit == rightLimit) return new TreeNode(nums[leftLimit - 1]);
+	const middle = leftLimit + Math.ceil((rightLimit - leftLimit) / 2);
+	if (middle == rightLimit)
+		return new TreeNode(
+			nums[rightLimit - 1],
+			new TreeNode(nums[leftLimit - 1])
+		);
+	return new TreeNode(
+		nums[middle - 1],
+		appendNode(nums, leftLimit, middle - 1),
+		appendNode(nums, middle + 1, rightLimit)
+	);
 }
 function sortedArrayToBST(nums: number[]): TreeNode | null {
 	if (nums.length == 0) return null;
-	if (nums.length == 1) return new TreeNode(nums[0]);
-	return appendNode(nums, 0, nums.length);
+	return appendNode(nums, 1, nums.length);
 }
 // @lc code=end
 // @leetcode:omit_below
