@@ -13,3 +13,19 @@ function removeDuplicates(nums: number[]): number {
 	return numbersCount;
 }
 // @lc code=end
+
+/**
+function removeDuplicates(nums: number[]): number {
+	let numbersCount = 1;
+	for (let index = 1; index < nums.length; ++index)
+		if (nums[index] != nums[numbersCount - 1])
+			nums[numbersCount++] = nums[index];
+	return numbersCount;
+}
+
+function removeDuplicates(nums: number[]): number {
+	let i = 0;
+	for (let val of new Set(nums).values()) nums[i++] = val;
+	return i;
+}
+ */
