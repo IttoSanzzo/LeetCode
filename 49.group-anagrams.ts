@@ -15,17 +15,4 @@ function groupAnagrams(strs: string[]): string[][] {
 	}
 	return [...anagrams.values()];
 }
-
-/*
-function isAnagram(s: string, t: string): boolean {
-	if (s.length != t.length) return false;
-	const letters = new Int16Array(26);
-	for (let index = 0; index < s.length; ++index) {
-		++letters[s.charCodeAt(index) - 97];
-		--letters[t.charCodeAt(index) - 97];
-	}
-	for (const letter of letters) if (letter != 0) return false;
-	return true;
-}
-*/
 // @lc code=end
