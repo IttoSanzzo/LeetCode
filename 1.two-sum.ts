@@ -6,13 +6,12 @@
 
 // @lc code=start
 function twoSum(nums: number[], target: number): [number, number] {
-	const hash: Map<number, number> = new Map();
+	const hash = new Map<number, number>();
 
 	for (let index = 0; index < nums.length; ++index) {
 		const missingValue = target - nums[index];
-		if (hash[missingValue] != null && hash[missingValue] != index)
-			return [hash[missingValue], index];
-		hash[nums[index]] = index;
+		if (hash.has(missingValue)) return [hash.get(missingValue)!, index];
+		hash.set(nums[index], index);
 	}
 	return [0, 1];
 }
