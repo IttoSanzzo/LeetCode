@@ -8,15 +8,11 @@
 function longestConsecutive(nums: number[]): number {
 	const numSet = new Set(nums);
 	let longest = 0;
-
 	for (let num of numSet) {
 		if (numSet.has(num - 1)) continue;
 		let currentCount = 1;
-		while (numSet.has(num + 1)) {
-			++currentCount;
-			++num;
-		}
-		if (currentCount > longest) longest = currentCount;
+		while (numSet.has(num + currentCount)) ++currentCount;
+		longest = Math.max(currentCount, longest);
 	}
 	return longest;
 }
