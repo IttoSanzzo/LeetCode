@@ -5,7 +5,7 @@
  */
 
 // @lc code=start
-const charValue = {
+const romans: { [key: string]: number } = {
 	I: 1,
 	V: 5,
 	X: 10,
@@ -18,9 +18,8 @@ const charValue = {
 function romanToInt(s: string): number {
 	let integer = 0;
 	for (let index = s.length - 1; index >= 0; --index) {
-		if (charValue[s[index]] < charValue[s[index + 1]])
-			integer -= charValue[s[index]];
-		else integer += charValue[s[index]];
+		if (romans[s[index]] < romans[s[index + 1]]) integer -= romans[s[index]];
+		else integer += romans[s[index]];
 	}
 	return integer;
 }
